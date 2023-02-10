@@ -23,7 +23,7 @@ public class Cafe_Maquina implements Serializable{
     private String status;
     private Date data;
     private int sacas;
-    private float quilos;
+    private double quilos;
     private int barracao;
     private String subproduto;
     private int numero_nota;
@@ -64,11 +64,11 @@ public class Cafe_Maquina implements Serializable{
 	public void setSacas(int sacas) {
 		this.sacas = sacas;
 	}
-	public float getQuilos() {
+	public double getQuilos() {
 		return quilos;
 	}
-	public void setQuilos(float quilos) {
-		this.quilos = quilos;
+	public void setQuilos(double d) {
+		this.quilos = d;
 	}
 	public int getBarracao() {
 		return barracao;

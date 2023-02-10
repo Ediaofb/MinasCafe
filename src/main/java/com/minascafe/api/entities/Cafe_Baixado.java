@@ -19,11 +19,11 @@ public class Cafe_Baixado implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)//Auto incremento = Configurando o provedor de persistência q implementa a JPA seja o responsável junto com o MySQL de controlar os valores gerados para o identificar único
 	private int lote;
 	
-	private int produtor;
+	private String produtor;
 	private String status;
 	private Date data;
     private int sacas;
-    private float quilos;
+    private double quilos;
     private int barracao;
     private String subproduto;
     private int numero_nota;
@@ -46,10 +46,10 @@ public class Cafe_Baixado implements Serializable{
 	}
 	
 	@Column (name = "produtor", nullable = false) //*nullable* indica que o elemento anotado pode estar 'nulo' em algum momento
-	public int getProdutor() {
+	public String getProdutor() {
 		return produtor;
 	}
-	public void setProdutor(int produtor) {
+	public void setProdutor(String produtor) {
 		this.produtor = produtor;
 	}
 	
@@ -78,10 +78,10 @@ public class Cafe_Baixado implements Serializable{
 	}
 	
 	@Column (name = "quilos", nullable = false)
-	public float getQuilos() {
+	public double getQuilos() {
 		return quilos;
 	}
-	public void setQuilos(float quilos) {
+	public void setQuilos(double quilos) {
 		this.quilos = quilos;
 	}
 	

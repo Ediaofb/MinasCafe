@@ -7,5 +7,5 @@ import com.minascafe.api.entities.Cafe_Maquina;
 @Transactional
 public interface Cafe_MaquinaRepository extends JpaRepository<Cafe_Maquina, Integer>{
 
-	Cafe_Maquina findByLote(int Lote);
+	Cafe_Maquina findByLote(int Lote);//SELECT * FROM Cafe_Maquina WHERE Lote = this.Lote
 }

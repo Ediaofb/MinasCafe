@@ -7,8 +7,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-@ActiveProfiles("test")
+@SpringBootTest//Spring gerará um contexto de teste e não de aplicação de produção real
+@ActiveProfiles("test")//Definindo o profile como sendo teste - para não tentar utilizar o MySql
 class MinasCafeApplicationTests {
 
 	@Test

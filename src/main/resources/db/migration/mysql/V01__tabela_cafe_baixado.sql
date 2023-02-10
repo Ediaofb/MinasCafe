@@ -14,10 +14,8 @@ CREATE TABLE IF NOT EXISTS `cad_cafe_baixado` (
   `lancado` varchar(3) DEFAULT NULL,
   `observacoes` varchar(140) DEFAULT NULL,
   `referencia` varchar(7) DEFAULT NULL,
+  `meieiro` VARCHAR(40) DEFAULT NULL,
+  `porcentagem_produtor` int(2),
+  `porcentagem_meieiro` int(2),
   PRIMARY KEY (`lote`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
-ALTER TABLE cad_cafe_baixado
-ADD COLUMN meieiro VARCHAR(40),
-ADD COLUMN porcentagem_produtor int(2),
-ADD COLUMN porcentagem_meieiro int(2);

@@ -1,7 +1,6 @@
 package com.minascafe.api.repositories;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.Date;
 import org.junit.After;
 import org.junit.Before;
@@ -21,7 +20,7 @@ import com.minascafe.api.entities.Cafe_Coco;
 public class Cafe_CocoRepositoryTest {
 
 	@Autowired //Diz ao Spring para injetar o Cafe_CocoRepository que foi criado antes para dentro do seu teste.
-	private Cafe_CocoRepository cafe_CocoRepository;
+	private Cafe_CocoRepository cafe_cocorepository;
 	
 	private static int Lote = 215;
 	
@@ -33,17 +32,17 @@ public class Cafe_CocoRepositoryTest {
 		cafe_Coco.setData(new Date());
 		cafe_Coco.setSacos(90);
 		cafe_Coco.setQuilos(16.80);
-		this.cafe_CocoRepository.save(cafe_Coco);
+		this.cafe_cocorepository.save(cafe_Coco);
 	}
 	
 	@After //executa esta operação depois da execução do join point
 	public final void tearDown()/*destruir*/{
-		this.cafe_CocoRepository.deleteAll(); //Deleta tudo
+		this.cafe_cocorepository.deleteAll(); //Deleta tudo
 	}
 	
 	@Test //validando o teste
 	public void testBuscarPorLote() {
-		Cafe_Coco cafe_Coco = this.cafe_CocoRepository.findByLote(Lote);
+		Cafe_Coco cafe_Coco = this.cafe_cocorepository.findByLote(Lote);
 		
 		assertEquals(Lote, Lote); //verifica se o lote declarado é o mesmo do Café em Côco retornado
 	}
