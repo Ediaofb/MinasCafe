@@ -10,23 +10,29 @@ import com.minascafe.api.repositories.Cafe_BaixadoRepository;
 import com.minascafe.api.services.Cafe_Baixado_Service;
 
 @Service //Cria um serviço
-public class Cafe_BaixadoImpl implements Cafe_Baixado_Service {
+public class Cafe_BaixadoImpl implements Cafe_Baixado_Service {// É uma camada acima do Jpa Repository que será consumido por um Controller mais adiante 
 
-	private static final Logger log = LoggerFactory.getLogger(Cafe_BaixadoImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(Cafe_BaixadoImpl.class);//Declarando o log = "descreve eventos do funcionamento do sistema"
 	
 	@Autowired 
-	private Cafe_BaixadoRepository cafe_BaixadoRepository;//Declarando variável cafe_BaixadoRepository 
+	private Cafe_BaixadoRepository cafe_BaixadoRepository;//Declarando variável cafe_BaixadoRepository
 	
 	@Override //Informa ao compilador que o elemento deve substituir um elemento declarado em uma superclasse
-	public Optional<Cafe_Baixado> buscarPorLote(int Lote){//Optional=classe implementada no Java 8, tem o objetivo de simplificar os códigos, facilitando a vida dos desenvolvedores.
+	public Optional<Cafe_Baixado> buscarPorLote(int Lote){ //Optional=classe implementada no Java 8, tem o objetivo de simplificar os códigos, facilitando a vida dos desenvolvedores.
     //O Optional nos ajuda a evitar os erros NullPointerException, tira a necessidade da verificação (if x != null)
-       log.info("Buscando um cafe baixado com o lote {}", Lote);//imprime na tela
-       return Optional.ofNullable(cafe_BaixadoRepository.findByLote(Lote));//Retorna um Optional com o valor pedido pelo método. Pode ser nulo ou não. Evita exceção NullPointer!
+       log.info("Buscando Café baixado por lote {}", Lote); //imprime na tela
+       return Optional.ofNullable(cafe_BaixadoRepository.findByLote(Lote));//Faz chamada ao cafe_BaixadoRepository, buscando por lote. Retorna um Optional com o valor pedido pelo método. Pode ser nulo ou não. Evita exceção NullPointer!
 	}
 	
-	@Override
+	@Override //Sobrepõe um método já existente
 	public Cafe_Baixado persistir (Cafe_Baixado cafe_Baixado){
 		log.info("Persistindo Café baixado: {}", cafe_Baixado);//imprime na tela
 		return this.cafe_BaixadoRepository.save(cafe_Baixado);
+	}
+	
+	@Override
+	public Optional<Cafe_Baixado> buscarPorProdutor(String Produtor){
+		log.info("Buscando um Café baixado por produtor: {}", Produtor);
+		return Optional.ofNullable(cafe_BaixadoRepository.findByProdutor(Produtor));//Faz chamada ao cafe_BaixadoRepository, buscando por produtor. Retorna um Optional com o valor pedido pelo método. Pode ser nulo ou não. Evita exceção NullPointer!
 	}
 }

@@ -5,7 +5,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.minascafe.api.entities.Cafe_Baixado;
 
 @Transactional
-public interface Cafe_BaixadoRepository extends JpaRepository<Cafe_Baixado, Integer>{
+public interface Cafe_BaixadoRepository extends JpaRepository<Cafe_Baixado, Integer>{ //seu foco (Repository) também é a camada de persistência de dados de uma aplicação.
 
 	Cafe_Baixado findByLote(int Lote);//SELECT * FROM Cafe_Baixado WHERE Lote = this.Lote
+	Cafe_Baixado findByProdutor(String produtor);
 }

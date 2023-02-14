@@ -7,5 +7,6 @@ import com.minascafe.api.entities.Cafe_Beneficiado;
 @Transactional
 public interface Cafe_BeneficiadoRepository extends JpaRepository<Cafe_Beneficiado, Integer>{
 
-	Cafe_Beneficiado findByLote(int Lote);
+	Cafe_Beneficiado findByLote(int Lote);//SELECT * FROM Cafe_Beneficiado WHERE Lote = this.Lote
+	Cafe_Beneficiado findByprodutor(String produtor);
 }

@@ -17,7 +17,7 @@ import com.minascafe.api.entities.Cafe_Baixado;
 @SpringBootTest
 @ActiveProfiles("test")//ativando um profile do tipo 'Teste'
 
-public class Cafe_BaixadoRepositoryTest {
+public class Cafe_BaixadoRepositoryTest {//Reduzir a quantidade de código necessário para implementar a camada de acesso e persistência de dados. Sua principal finalidade é gerenciar a classe de domínio assim como o tipo de dado do id da classe
 
 	@Autowired //Diz ao Spring para injetar o Cafe_BaixadoRepository que foi criado antes para dentro do seu teste.
 	private Cafe_BaixadoRepository cafe_baixadorepository;
