@@ -1,4 +1,5 @@
 package com.minascafe.api.entities;
+//@author Edson Ferreira Barbosa
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
-
 
 @Entity //A classe é também uma entidade, a JPA estabelecerá a ligação entre a entidade e uma tabela de mesmo nome no banco de dados onde os dados de objetos desse tipo poderão ser persistidos
 @Table(name = "cad_cafe_beneficiado")
@@ -34,6 +34,9 @@ public class Cafe_Beneficiado implements Serializable{
     private int peneira;
     private String lancado;
     private String observacoes;
+    private String meieiro;
+    private int porcentagem_produtor;
+    private int porcentagem_meieiro;
     
     public Cafe_Beneficiado() {
     }
@@ -161,6 +164,33 @@ public class Cafe_Beneficiado implements Serializable{
 
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
+	}
+	
+	@Column (name = "meieiro", nullable = false)
+	public String getMeieiro() {
+		return meieiro;
+	}
+	
+	public void setMeieiro(String meieiro) {
+		this.meieiro = meieiro;
+	}
+	
+	@Column (name = "porcentagem_produtor", nullable = false)
+	public int getPorcentagem_produtor() {
+		return porcentagem_produtor; 
+	}
+	
+	public void setPorcentagem_produtor(int porcentagem_produtor) {
+		this.porcentagem_produtor = porcentagem_produtor;
+	}
+	
+	@Column (name = "porcentagem_meieiro", nullable = false)
+	public int getPorcentagem_meieiro() {
+		return porcentagem_meieiro;
+	}
+	
+	public void setPorcentagem_meieiro(int porcentagem_meieiro) {
+		
 	}
 	
 	@PreUpdate //executa o método anotado antes da entidade ser atualizada

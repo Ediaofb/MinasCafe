@@ -1,4 +1,5 @@
 package com.minascafe.api.services.impl;
+//@author Edson Ferreira Barbosa
 
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -14,14 +15,20 @@ public class Cafe_BaixadoImpl implements Cafe_Baixado_Service {// É uma camada 
 
 	private static final Logger log = LoggerFactory.getLogger(Cafe_BaixadoImpl.class);//Declarando o log = "descreve eventos do funcionamento do sistema"
 	
-	@Autowired 
+	@Autowired //Injetando dependência de forma automática 
 	private Cafe_BaixadoRepository cafe_BaixadoRepository;//Declarando variável cafe_BaixadoRepository
 	
 	@Override //Informa ao compilador que o elemento deve substituir um elemento declarado em uma superclasse
 	public Optional<Cafe_Baixado> buscarPorLote(int Lote){ //Optional=classe implementada no Java 8, tem o objetivo de simplificar os códigos, facilitando a vida dos desenvolvedores.
     //O Optional nos ajuda a evitar os erros NullPointerException, tira a necessidade da verificação (if x != null)
-       log.info("Buscando Café baixado por lote {}", Lote); //imprime na tela
+       log.info("Buscando Café baixado pelo lote {}", Lote); //imprime na tela
        return Optional.ofNullable(cafe_BaixadoRepository.findByLote(Lote));//Faz chamada ao cafe_BaixadoRepository, buscando por lote. Retorna um Optional com o valor pedido pelo método. Pode ser nulo ou não. Evita exceção NullPointer!
+	}	
+	
+	@Override
+	public Optional<Cafe_Baixado> buscarPorProdutor(String Produtor){
+		log.info("Buscando um Café baixado do produtor: {}", Produtor);
+		return Optional.ofNullable(cafe_BaixadoRepository.findByProdutor(Produtor));//Faz chamada ao cafe_BaixadoRepository, buscando por produtor. Retorna um Optional com o valor pedido pelo método. Pode ser nulo ou não. Evita exceção NullPointer!
 	}
 	
 	@Override //Sobrepõe um método já existente
@@ -31,8 +38,8 @@ public class Cafe_BaixadoImpl implements Cafe_Baixado_Service {// É uma camada 
 	}
 	
 	@Override
-	public Optional<Cafe_Baixado> buscarPorProdutor(String Produtor){
-		log.info("Buscando um Café baixado por produtor: {}", Produtor);
-		return Optional.ofNullable(cafe_BaixadoRepository.findByProdutor(Produtor));//Faz chamada ao cafe_BaixadoRepository, buscando por produtor. Retorna um Optional com o valor pedido pelo método. Pode ser nulo ou não. Evita exceção NullPointer!
+	public void remover (int lote) {
+		log.info("Removendo o café baixado de lote {}: ", lote);
+		this.cafe_BaixadoRepository.deleteById(lote);
 	}
 }

@@ -1,8 +1,8 @@
 package com.minascafe.api.entities;
+//@author Edson Ferreira Barbosa
 
 import java.io.Serializable;
 import java.util.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,6 +34,13 @@ public class Ficha_Produtor implements Serializable{
 	private int renda;
 	private int humidade;
 	private float valor_total;
+	private String banco;
+	private String agencia;
+	private String operacao;
+	private String tipo_conta;
+	private String numero_conta;
+	private String nome_corentista;
+	private String chave_pix;
 	
 	public int getId() {
 		return id;
@@ -66,6 +73,61 @@ public class Ficha_Produtor implements Serializable{
 		this.cpf = cpf;
 	}
 	
+	@Column (name = "banco", nullable = true)
+	public String getBanco() {
+		return banco;
+	}
+	public void setBanco(String banco) {
+		this.banco = banco;
+	}
+	
+	@Column (name = "agencia", nullable = true)
+	public String getAgencia() {
+		return agencia;
+	}
+	public void setAgencia(String agencia) {
+		this.agencia = agencia;
+	}
+	
+	@Column (name = "operacao", nullable = true)
+	public String getOperacao() {
+		return operacao;
+	}
+	public void setOperacao(String operacao) {
+		this.operacao = operacao;
+	}
+	
+	@Column (name = "tipo_conta", nullable = true)
+	public String getTipo_conta() {
+		return tipo_conta;
+	}
+	public void setTipo_conta(String tipo_conta) {
+		this.tipo_conta = tipo_conta;
+	}
+	
+	@Column (name = "numero_conta", nullable = true)
+	public String getNumero_conta() {
+		return numero_conta;
+	}
+	public void setNumero_conta(String numero_conta) {
+		this.numero_conta = numero_conta;
+	}
+	
+	@Column (name = "nome_correntista", nullable = true)
+	public String getNome_corentista() {
+		return nome_corentista;
+	}
+	public void setNome_corentista(String nome_corentista) {
+		this.nome_corentista = nome_corentista;
+	}
+	
+	@Column (name = "chave_pix", nullable = true)
+	public String getChave_pix() {
+		return chave_pix;
+	}
+	public void setChave_pix(String chave_pix) {
+		this.chave_pix = chave_pix;
+	}
 	@Column (name = "telefone", nullable = true)
 	public String getTelefone() {
 		return telefone;
@@ -158,7 +220,9 @@ public class Ficha_Produtor implements Serializable{
 		return "Ficha_Produtor [id=" + id + ", nome=" + nome + ", apelido=" + apelido + ", cpf=" + cpf + ", telefone="
 				+ telefone + ", data=" + data + ", entrada_saida=" + entrada_saida + ", lote=" + lote + ", duro=" + duro
 				+ ", riado=" + riado + ", rio=" + rio + ", escolha=" + escolha + ", renda=" + renda + ", humidade="
-				+ humidade + ", valor_total=" + valor_total + "]";
+				+ humidade + ", valor_total=" + valor_total + ", banco=" + banco + ", agencia=" + agencia
+				+ ", operacao=" + operacao + ", tipo_conta=" + tipo_conta + ", numero_conta=" + numero_conta
+				+ ", nome_corentista=" + nome_corentista + ", chave_pix=" + chave_pix + "]";
 	}
 	
 }

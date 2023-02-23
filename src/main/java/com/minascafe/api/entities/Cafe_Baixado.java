@@ -1,4 +1,5 @@
 package com.minascafe.api.entities;
+//@author Edson Ferreira Barbosa
 
 import java.io.Serializable;
 import java.util.Date;
@@ -33,6 +34,9 @@ public class Cafe_Baixado implements Serializable{
     private String lancado;
     private String observacoes;
     private String referencia;
+    private String meieiro;
+    private int porcentagem_produtor;
+    private int porcentagem_meieiro;
 	
     public Cafe_Baixado() {    	
     }
@@ -156,14 +160,42 @@ public class Cafe_Baixado implements Serializable{
 	public void setReferencia(String referencia) {
 		this.referencia = referencia;
 	}
+	
+	@Column (name = "meieiro", nullable = true)
+	public String getMeieiro() {
+		return meieiro;
+	}
 
+	public void setMeieiro(String meieiro) {
+		this.meieiro = meieiro;
+	}
+
+	@Column (name = "porcentagem_produtor", nullable = true)
+	public int getPorcentagem_produtor() {
+		return porcentagem_produtor;
+	}
+
+	public void setPorcentagem_produtor(int porcentagem_produtor) {
+		this.porcentagem_produtor = porcentagem_produtor;
+	}
+
+	@Column (name = "procentagem_meieiro", nullable = true)
+	public int getPorcentagem_meieiro() {
+		return porcentagem_meieiro;
+	}
+
+	public void setPorcentagem_meieiro(int porcentagem_meieiro) {
+		this.porcentagem_meieiro = porcentagem_meieiro;
+	}
+
+	
 	@Override
-	public String toString() { //retorna uma representação string de um objeto
+	public String toString() {
 		return "Cafe_Baixado [lote=" + lote + ", produtor=" + produtor + ", status=" + status + ", data=" + data
 				+ ", sacas=" + sacas + ", quilos=" + quilos + ", barracao=" + barracao + ", subproduto=" + subproduto
 				+ ", numero_nota=" + numero_nota + ", classificacao=" + classificacao + ", catacao=" + catacao
 				+ ", peneira=" + peneira + ", lancado=" + lancado + ", observacoes=" + observacoes + ", referencia="
-				+ referencia + "]";
-	}    
-	
+				+ referencia + ", meieiro=" + meieiro + ", porcentagem_produtor=" + porcentagem_produtor
+				+ ", porcentagem_meieiro=" + porcentagem_meieiro + "]";
+	}	
 }
