@@ -1,9 +1,7 @@
 package com.minascafe.api.repositories;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.Date;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;

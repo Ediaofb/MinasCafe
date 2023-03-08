@@ -1,12 +1,11 @@
 package com.minascafe.api;
 // @author Edson Ferreira Barbosa
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
- @SpringBootApplication
+ @SpringBootApplication(exclude = { SecurityAutoConfiguration.class }) //Desabilitando a segurança do SpringBoot
 
  public class MinasCafeApplication {
     

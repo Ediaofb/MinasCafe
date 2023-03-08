@@ -2,7 +2,7 @@ package com.minascafe.api.responses;
 
 import java.util.ArrayList;
 import java.util.List;
-
+                             //Resposta...
 public class Cafe_CocoResponse <T>{ //'T'- Na instanciação da Classe, permite que você passe qualquer classe para ela  
 	
 	private T data; //data (dados) do tipo 'T'. Será sempre o retorno do tipo de response que eu estou trabalhando.--Será usado para casos de sucesso
